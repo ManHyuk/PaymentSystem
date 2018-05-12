@@ -5,7 +5,10 @@ const userCtrl = require('../controllers/UserCtrl');
 module.exports = (router) => {
 
   router.route('/signup')
-    .get(userCtrl.signup);
+    .post(userCtrl.signup);
+
+  router.route('/siginin')
+    .post(userCtrl.signin);
 
 
   return router;

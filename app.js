@@ -40,7 +40,7 @@ require('./ErrorHandler')(app);
 
 const PORT = 3000;
 app.listen(PORT, () => {
-    console.info(`[ApiServer] Listening on Port ${PORT}`);
+    console.info(`[PayMent-System] Listening on Port ${PORT}`);
 });
 
 module.exports = app;
