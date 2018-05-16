@@ -27,7 +27,7 @@ exports.write = (reqData) => {
 };
 
 
-exports.list = () => {
+exports.findAll = () => {
   return new Promise((resolve, reject) => {
     const sql =
       `
@@ -44,3 +44,26 @@ exports.list = () => {
   })
 };
 
+
+/*******
+ * TODO 유저테이블 조인
+ * @returns {Promise<any>}
+ */
+exports.find = (data) => {
+  return new Promise((resolve, reject) => {
+    const sql =
+      `
+      SELECT url, title, contents, price, quantity
+      FROM Products
+      WHERE url REGEXP ?;
+      `;
+
+    pool.query(sql, [data], (err, rows) => {
+      if (err) {
+        reject(err);
+      } else {
+        resolve(rows);
+      }
+    });
+  });
+};

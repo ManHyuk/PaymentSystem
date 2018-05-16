@@ -28,13 +28,13 @@ exports.write = async(req, res, next) => {
 };
 
 
-exports.list = async(req, res, next) => {
+exports.findAll = async(req, res, next) => {
 
   let result;
 
   try {
 
-    result = await prodModel.list();
+    result = await prodModel.findAll();
 
   } catch (error) {
     return next(error);
@@ -42,5 +42,27 @@ exports.list = async(req, res, next) => {
 
   return res.r(result);
 };
+
+
+exports.find = async(req, res, next) => {
+
+  let result;
+
+  try {
+    const reqData = {
+      url: req.params.url
+    };
+
+    result = await prodModel.find(reqData);
+
+  } catch (error) {
+    return next(error);
+  }
+
+  return res.r(result);
+};
+
+
+
 
 

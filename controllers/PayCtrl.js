@@ -16,3 +16,4 @@ exports.pay = async(req, res, next) => {
 
   return res.r(result);
 };
+
